@@ -1,0 +1,53 @@
+
+@toppadding: 10px;
+@grey: #eee;
+@black: #000;
+@white: #fff;
+
+html, body {
+  background-color: @black;
+}
+
+body {
+  .container {
+    .content {
+      background-color: @black;
+      //padding: 20px;
+      margin-top: @toppadding;
+      margin-right: -30px;/* negative indent the amount of the padding to maintain the grid system */
+      border-radius: 6px;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, .15);
+      #sensors {
+
+        .sensor {
+          color: white;
+          font-size: 300%;
+          text-align:center;
+          margin: 5px 20px;
+          padding: 30px 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          //border: black solid 10px;
+        }
+        .UP {
+          background: forestgreen;
+        }
+        .DOWN
+        {
+          background: red;
+        }
+        .UNKNOWN
+        {
+          background: gray;
+        }
+      }
+    }
+    footer {
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
