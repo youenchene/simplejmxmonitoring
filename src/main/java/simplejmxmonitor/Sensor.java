@@ -8,8 +8,9 @@ public class Sensor {
    private String status;
    private String statusMbean;
     private String statusMbeanUp;
+    private String server;
 
-    public Sensor(Long id, String name, String ip, Integer jmxport, String status, String statusMbean, String statusMbeanUp) {
+    public Sensor(Long id, String name, String ip, Integer jmxport, String status, String statusMbean, String statusMbeanUp, String server) {
         this.id = id;
         this.name = name;
         this.ip = ip;
@@ -17,6 +18,7 @@ public class Sensor {
         this.status = status;
         this.statusMbean = statusMbean;
         this.statusMbeanUp = statusMbeanUp;
+        this.server = server;
     }
 
     public String getStatusMbeanUp() {
@@ -78,4 +80,11 @@ public class Sensor {
         this.statusMbean = statusMbean;
     }
 
+    public String getServer() {
+        return server;
+    }
+
+    public void setServer(String server) {
+        this.server = server;
+    }
 }

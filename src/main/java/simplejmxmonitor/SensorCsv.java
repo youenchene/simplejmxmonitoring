@@ -21,5 +21,8 @@ public class SensorCsv {
    @CsvColumn("statusMbeanUp")
    public String statusMbeanUp;
 
+   @CsvColumn("server")
+   public String server;
+
 
 }

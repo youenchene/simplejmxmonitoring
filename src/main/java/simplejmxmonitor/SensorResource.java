@@ -32,7 +32,7 @@ public class SensorResource extends RestResource<Sensor> {
                     @Override
                     public void insertObject(SensorCsv sensorCsv) {
                         Long id=entities.size()+1l;
-                        entities.put(id,new Sensor(id,sensorCsv.name,sensorCsv.ip,Integer.parseInt(sensorCsv.jmxport),"UNKNOWN",sensorCsv.statusMbean,sensorCsv.statusMbeanUp));
+                        entities.put(id,new Sensor(id,sensorCsv.name,sensorCsv.ip,Integer.parseInt(sensorCsv.jmxport),"UNKNOWN",sensorCsv.statusMbean,sensorCsv.statusMbeanUp,sensorCsv.server));
                     }
                 });
             } catch (CsvErrorsExceededException e) {
@@ -61,6 +61,7 @@ public class SensorResource extends RestResource<Sensor> {
             Long id=it.next();
             try {
                 Sensor sensor=entities.get(id);
+                sensor.setStatus("UNKNOWN");
                 String url = "service:jmx:rmi:///jndi/rmi://"+sensor.getIp()+":"+sensor.getJmxport()+"/jmxrmi";
                 JMXServiceURL serviceUrl = new JMXServiceURL(url);
                 JMXConnector jmxConnector = JMXConnectorFactory.connect(serviceUrl, null);
